@@ -4,18 +4,20 @@ var bodyParser = require('body-parser');
 
 var PORT = process.env.PORT || 6000;
 
-app.use(bodyParser.urlencoded({ extended: true }));
-
-app.use(bodyParser.json({ 
-    type: 'application/*+json' 
+app.use(bodyParser.urlencoded({
+    extended: true
 }));
 
-app.use(bodyParser.raw({ 
-    type: 'application/vnd.custom-type' 
+app.use(bodyParser.json({
+    type: 'application/*+json'
 }));
 
-app.use(bodyParser.text({ 
-    type: 'text/html' 
+app.use(bodyParser.raw({
+    type: 'application/vnd.custom-type'
+}));
+
+app.use(bodyParser.text({
+    type: 'text/html'
 }));
 
 require("./app/routing/apiRoutes.js")(app);
